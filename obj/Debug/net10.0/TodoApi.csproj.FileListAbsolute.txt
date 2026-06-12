@@ -1,13 +1,10 @@
+C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.exe
+C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.dll
+C:\Users\ns\TodoApi\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\ns\TodoApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Users\ns\TodoApi\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\ns\TodoApi\bin\Debug\net10.0\appsettings.json
 C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.staticwebassets.endpoints.json
-C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.exe
-C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.deps.json
-C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.runtimeconfig.json
-C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.dll
-C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.pdb
-C:\Users\ns\TodoApi\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\ns\TodoApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.csproj.AssemblyReference.cache
 C:\Users\ns\TodoApi\obj\Debug\net10.0\rpswa.dswa.cache.json
 C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.GeneratedMSBuildEditorConfig.editorconfig
@@ -30,5 +27,8 @@ C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.csproj.Up2Date
 C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.dll
 C:\Users\ns\TodoApi\obj\Debug\net10.0\refint\TodoApi.dll
 C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.pdb
+C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.deps.json
+C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.runtimeconfig.json
+C:\Users\ns\TodoApi\bin\Debug\net10.0\TodoApi.pdb
 C:\Users\ns\TodoApi\obj\Debug\net10.0\TodoApi.genruntimeconfig.cache
 C:\Users\ns\TodoApi\obj\Debug\net10.0\ref\TodoApi.dll

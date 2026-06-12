@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
+builder.Services.AddSingleton<List<Todo>>();
 
 var app = builder.Build();
 
@@ -16,8 +17,7 @@ var todos = new List<Todo>();
 todos.Add(new Todo { Title = "Buy groceries", Description = "Milk, Bread, Eggs"});
 
 
-app.MapGet("/todos", () => Results.Ok(todos));
-
+app.MapTodoEndpoints();
 app.Run();
 
 public class Todo

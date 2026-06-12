@@ -1,6 +1,22 @@
 @TodoApi_HostAddress = http://localhost:5024
+@id = 1
 
-GET {{TodoApi_HostAddress}}/weatherforecast/
+
+GET {{TodoApi_HostAddress}}/todos/
 Accept: application/json
+
+###
+
+POST {{TodoApi_HostAddress}}/todos
+Content-Type: application/json
+
+{
+    "title": "Clean the house",
+    "description": "Kitchen, living room, and bathroom",
+}
+
+###
+
+DELETE {{TodoApi_HostAddress}}/todos/{{id}}
 
 ###
