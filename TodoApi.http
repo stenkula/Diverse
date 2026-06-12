@@ -1,5 +1,5 @@
 @TodoApi_HostAddress = http://localhost:5024
-@id = 1
+@id = d9c91c3d-4580-434f-8137-21c2cd2c6a1e
 
 
 GET {{TodoApi_HostAddress}}/todos/
@@ -12,7 +12,18 @@ Content-Type: application/json
 
 {
     "title": "Clean the house",
-    "description": "Kitchen, living room, and bathroom",
+    "description": "Kitchen, living room, and bathroom"
+}
+
+###
+
+PUT  {{TodoApi_HostAddress}}/todos/{{id}}
+Content-Type: application/json
+
+{
+    "title": "Clean the house",
+    "description": "Kitchen, living room, and bathroom"
+    "isCompleted": true
 }
 
 ###

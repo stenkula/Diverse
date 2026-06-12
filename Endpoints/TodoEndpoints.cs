@@ -10,6 +10,16 @@ public static class TodoEndpoints
             return Results.Created($"/todos/{todo.Id}", todo);
         });
 
+        app.MapPut("/todos/{id}", (Guid id, Todo updatedTodo, List<Todo> todos) =>
+        {
+            var todo = todos.FirstOrDefault(t => t.Id == id);
+            if (todo is null) return Results.NotFound();
+            todo.Title = updatedTodo.Title;
+            todo.Description = updatedTodo.Description;
+            todo.IsCompleted = updatedTodo.IsCompleted;
+            return Results.Ok(todo);
+        });
+
         app.MapDelete("/todos/{id}", (Guid id, List<Todo> todos) =>
         {
             var todo = todos.FirstOrDefault(t => t.Id == id);
