@@ -1,30 +1,35 @@
+using Microsoft.EntityFrameworkCore;
 public static class TodoEndpoints
 {
     public static void MapTodoEndpoints(this WebApplication app)
     {
-        app.MapGet("/todos", (List<Todo> todos) => Results.Ok(todos));
+        app.MapGet("/todos", async (TodoDbContext db) =>
+            Results.Ok(await db.Todos.ToListAsync()));
 
-        app.MapPost("/todos", (Todo todo, List<Todo> todos) =>
+        app.MapPost("/todos", async (Todo todo, TodoDbContext db) =>
         {
-            todos.Add(todo);
+            db.Todos.Add(todo);
+            await db.SaveChangesAsync();
             return Results.Created($"/todos/{todo.Id}", todo);
         });
 
-        app.MapPut("/todos/{id}", (Guid id, Todo updatedTodo, List<Todo> todos) =>
+        app.MapPut("/todos/{id}", async (Guid id, Todo updatedTodo, TodoDbContext db) =>
         {
-            var todo = todos.FirstOrDefault(t => t.Id == id);
+            var todo = await db.Todos.FindAsync(id);
             if (todo is null) return Results.NotFound();
             todo.Title = updatedTodo.Title;
             todo.Description = updatedTodo.Description;
             todo.IsCompleted = updatedTodo.IsCompleted;
+            await db.SaveChangesAsync();
             return Results.Ok(todo);
         });
 
-        app.MapDelete("/todos/{id}", (Guid id, List<Todo> todos) =>
+         app.MapDelete("/todos/{id}", async (Guid id, TodoDbContext db) =>
         {
-            var todo = todos.FirstOrDefault(t => t.Id == id);
+            var todo = await db.Todos.FindAsync(id);
             if (todo is null) return Results.NotFound();
-            todos.Remove(todo);
+            db.Todos.Remove(todo);
+            await db.SaveChangesAsync();
             return Results.NoContent();
         });
     }
