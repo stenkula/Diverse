@@ -12,7 +12,7 @@ Enkel REST API for å håndtere todo-oppgaver, bygget med .NET og PostgreSQL.
 ### 1. Klon prosjektet
  
 ```bash
-git clone Diverse.git
+git clone <repo-url>
 cd TodoApi
 ```
  
