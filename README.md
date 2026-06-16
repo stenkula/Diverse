@@ -7,6 +7,7 @@ Enkel REST API for å håndtere todo-oppgaver, bygget med .NET og PostgreSQL.
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for å kjøre PostgreSQL)
 - [EF Core CLI](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+- [Anthropic API-nøkkel](https://console.anthropic.com)
 ## Installasjon
  
 ### 1. Klon prosjektet
@@ -39,15 +40,22 @@ docker run --name tododb -e POSTGRES_PASSWORD=dittpassord -e POSTGRES_DB=tododb 
   }
 }
 ```
+
+### 5. Konfigurer Claude API-nøkkel
+
+```bash
+dotnet user-secrets init
+dotnet user-secrets set "Claude:ApiKey" "sk-ant-..."
+```
  
-### 5. Kjør databasemigrering
+### 6. Kjør databasemigrering
  
 ```bash
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
  
-### 6. Start API-et
+### 7. Start API-et
  
 ```bash
 dotnet run
@@ -61,6 +69,7 @@ API-et kjører nå på `http://localhost:5024`.
 |--------|-----|-------------|
 | GET | `/todos` | Hent alle todos |
 | POST | `/todos` | Opprett ny todo |
+| POST | `/todos/categorize?id={id}` | Auto-kategoriser en todo med Claude |
 | PUT | `/todos/{id}` | Oppdater en todo |
 | DELETE | `/todos/{id}` | Slett en todo |
  
@@ -73,6 +82,14 @@ API-et kjører nå på `http://localhost:5024`.
   "isCompleted": false
 }
 ```
+
+## AI-kategorisering
+
+Todos kan automatisk kategoriseres ved hjelp av Claude. Mulige kategorier:
+
+`Arbeid` `Privat` `Helse` `Økonomi` `Sosial` `Annet`
+
+Kategorisering skjer automatisk ved POST til `/todos/categorize?id={id}`.
  
 ## Stoppe og starte databasen
  
