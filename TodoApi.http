@@ -1,5 +1,5 @@
 @TodoApi_HostAddress = http://localhost:5024
-@id = d3449880-fd00-433b-b463-8eafe72b6704
+@id = 388056b9-73d3-4cff-885b-6ef6af2e3a58
 
 
 GET {{TodoApi_HostAddress}}/todos/
@@ -11,8 +11,8 @@ POST {{TodoApi_HostAddress}}/todos
 Content-Type: application/json
 
 {
-    "title": "By groceries",
-    "description": "Potato, carrots, onions"
+    "title": "Answer emails",
+    "description": "From boss and clients"
 }
 
 ###
@@ -31,3 +31,5 @@ Content-Type: application/json
 DELETE {{TodoApi_HostAddress}}/todos/{{id}}
 
 ###
+
+POST {{TodoApi_HostAddress}}/todos/categorize?id={{id}}

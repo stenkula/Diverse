@@ -32,5 +32,17 @@ public static class TodoEndpoints
             await db.SaveChangesAsync();
             return Results.NoContent();
         });
+
+        app.MapPost("/todos/categorize", async (Guid id, IClaudeService claude, TodoDbContext db) =>
+        {
+            var todo = await db.Todos.FindAsync(id);
+            if (todo is null) return Results.NotFound();
+            // Auto-kategoriser om ikke satt manuelt
+            todo.Category ??= await claude.CategorizeAsync(todo.Title, todo.Description);
+            
+            db.Todos.Remove(todo);
+            await db.SaveChangesAsync();
+            return Results.Created($"/todos/{todo.Id}", todo);
+        });
     }
 }
