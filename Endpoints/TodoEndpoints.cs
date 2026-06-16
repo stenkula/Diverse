@@ -39,8 +39,7 @@ public static class TodoEndpoints
             if (todo is null) return Results.NotFound();
             // Auto-kategoriser om ikke satt manuelt
             todo.Category ??= await claude.CategorizeAsync(todo.Title, todo.Description);
-            
-            db.Todos.Remove(todo);
+
             await db.SaveChangesAsync();
             return Results.Created($"/todos/{todo.Id}", todo);
         });
